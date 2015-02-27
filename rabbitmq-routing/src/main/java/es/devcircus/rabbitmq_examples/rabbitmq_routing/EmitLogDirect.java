@@ -37,7 +37,8 @@ public class EmitLogDirect {
     public static void main(String[] argv) throws Exception {
 
         ConnectionFactory factory = new ConnectionFactory();
-        factory.setHost("localhost");
+//        factory.setHost("localhost");
+        factory.setHost("192.168.0.202");
         Connection connection = factory.newConnection();
         Channel channel = connection.createChannel();
 

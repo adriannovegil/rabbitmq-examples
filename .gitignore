@@ -4,3 +4,9 @@
 *.jar
 *.war
 *.ear
+/rabbitmq-hello-world/target/
+/rabbitmq-publish-subcribe/target/
+/rabbitmq-routing/target/
+/rabbitmq-rpc/target/
+/rabbitmq-topics/target/
+/rabbitmq-work-queues/target/

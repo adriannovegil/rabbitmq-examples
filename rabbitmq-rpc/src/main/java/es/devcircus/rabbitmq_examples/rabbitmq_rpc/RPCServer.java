@@ -24,6 +24,10 @@ import com.rabbitmq.client.AMQP.BasicProperties;
 import com.rabbitmq.client.ConsumerCancelledException;
 import com.rabbitmq.client.ShutdownSignalException;
 import java.io.IOException;
+import java.security.KeyManagementException;
+import java.security.NoSuchAlgorithmException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * @author Adrian Novegil Toledo
@@ -58,7 +62,11 @@ public class RPCServer {
         Channel channel = null;
         try {
             ConnectionFactory factory = new ConnectionFactory();
-            factory.setHost("localhost");
+//            factory.setHost("localhost");
+            factory.setHost("192.168.0.202");
+//            factory.setPort(5671);
+            
+//            factory.useSslProtocol();
 
             connection = factory.newConnection();
             channel = connection.createChannel();
@@ -98,6 +106,7 @@ public class RPCServer {
                 }
             }
         } catch (IOException | InterruptedException | ShutdownSignalException | ConsumerCancelledException e) {
+            System.out.println(e.toString());
         } finally {
             if (connection != null) {
                 try {
